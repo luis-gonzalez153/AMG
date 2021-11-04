@@ -2,18 +2,18 @@
   	<v-app>
 		<v-app-bar
 			fixed
-			color="blue"
+			color="#3BA2D9"
 			app
 		>
 			<v-avatar
 				size="48px"
 			>
 				<img
-					src="https://cdn.vuetifyjs.com/images/john.jpg"
-					alt="John"
+					src="https://scontent-bog1-1.xx.fbcdn.net/v/t1.6435-9/211298636_4142217489189381_6629705770475768039_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeFXYThhxd0c9AcYqahTU5snDFC1lFuoeigMULWUW6h6KFBOPHpdHY118g11B1UsZXmNObM_aiNRKdsWhAoDxLtH&_nc_ohc=6BURUMdDI9oAX83IQHV&_nc_ht=scontent-bog1-1.xx&oh=67326a7f4c5ee24837185bac36b60f94&oe=61A72BD0"
+					alt="AMG"
 				>
 			</v-avatar>
-			<v-toolbar-title class="mx-4">AMG ADMINISTRADOR</v-toolbar-title>
+			<v-toolbar-title class="mx-4">AMG ADMIN</v-toolbar-title>
 
 
 			<v-btn
@@ -25,7 +25,7 @@
 					left
 					dark
 				>home</v-icon>
-				Inicio
+				Promociones
 			</v-btn>
 			<v-btn
 				to="/ciudadanos"
@@ -42,7 +42,7 @@
 			</v-btn>
 
 			<v-btn
-				to="/herramientas"
+				to="/herramienta"
 				class="ma-2"
 				plain
 			>
@@ -56,7 +56,7 @@
 			</v-btn>
 
 			<v-btn
-				to="/productos"
+				to="/producto"
 				class="ma-2"
 				plain
 			>
@@ -66,7 +66,21 @@
 				>
 					shop
 				</v-icon>
-				productos
+				Productos
+			</v-btn>
+
+			<v-btn
+				to="/cita"
+				class="ma-2"
+				plain
+			>
+				<v-icon
+					dark
+					left
+				>
+					assignment
+				</v-icon>
+				Citas
 			</v-btn>
 
 			<v-spacer></v-spacer>
@@ -85,6 +99,9 @@
 			<v-container style="height: auto;">
 				<router-view>
 					<Ciudadano/>
+					<Herramienta/>
+					<Producto/>
+					<Cita/>
 				</router-view>
 			</v-container>
 		</v-main>
@@ -123,6 +140,9 @@ export default {
 	components: {
 	Login: () => import("./components/Login.vue"),
 	Ciudadano: () => import("./views/Ciudadano.vue"),
+	Herramienta: ()=> import("./views/Herramienta.vue"),
+	Producto: ()=> import("./views/Producto.vue"),
+	Cita: ()=> import("./views/Cita.vue"),
 	},
 	methods:{
 		logOut(){

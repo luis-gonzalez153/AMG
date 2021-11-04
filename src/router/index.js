@@ -25,6 +25,8 @@ const routes = [
       requiresAuth: true
     }
   },
+
+
   {
     path:"/ciudadanos/",
     component:() => import("../views/Ciudadano.vue"),
@@ -52,9 +54,40 @@ const routes = [
         component: () => import("../components/ciudadano/ListarCiudadanos.vue"),
         props:true
       },
+    ]
+  },
+
+
+  {
+    path:"/herramienta/",
+    component:() => import("../views/Herramienta.vue"),
+    meta:{
+      requiresAuth: true
+    },
+    children:[
+      {
+        path: rutas.HERRAMIENTA_REGISTRAR,
+        component: () => import("../components/herramienta/FormularioHerramienta.vue"),
+        props:true
+      },
+      {
+        path: rutas.HERRAMIENTA_EDITAR,
+        component: () => import("../components/herramienta/FormularioHerramienta.vue"),
+        props:true
+      },
+      {
+        path: rutas.HERRAMIENTA_VER,
+        component: () => import("../components/herramienta/VistaPreviaHerramienta.vue"),
+        props:true
+      },
+      {
+        path: rutas.HERRAMIENTA_LISTAR,
+        component: () => import("../components/herramienta/ListarHerramienta.vue"),
+        props:true
+      },
       
       {
-        path:"/herramientas/",
+        path:"/herramienta/",
         component:() => import("../views/Herramienta.vue"),
         meta:{
           requiresAuth: true
@@ -62,7 +95,92 @@ const routes = [
       }
 
     ]
+  },
+
+  
+  {
+    path:"/producto/",
+    component:() => import("../views/Producto.vue"),
+    meta:{
+      requiresAuth: true
+    },
+    children:[
+      {
+        path: rutas.PRODUCTO_REGISTRAR,
+        component: () => import("../components/producto/FormularioProducto.vue"),
+        props:true
+      },
+      {
+        path: rutas.PRODUCTO_EDITAR,
+        component: () => import("../components/producto/FormularioProducto.vue"),
+        props:true
+      },
+      {
+        path: rutas.PRODUCTO_VER,
+        component: () => import("../components/producto/VistaPreviaProducto.vue"),
+        props:true
+      },
+      {
+        path: rutas.PRODUCTO_LISTAR,
+        component: () => import("../components/producto/ListarProducto.vue"),
+        props:true
+      },
+      
+      {
+        path:"/producto/",
+        component:() => import("../views/Producto.vue"),
+        meta:{
+          requiresAuth: true
+        },
+      }
+
+    ]
+  },
+
+
+
+  {
+    path:"/cita/",
+    component:() => import("../views/Cita.vue"),
+    meta:{
+      requiresAuth: true
+    },
+    children:[
+      {
+        path: rutas.PRODUCTO_REGISTRAR,
+        component: () => import("../components/cita/FormularioCita.vue"),
+        props:true
+      },
+      {
+        path: rutas.PRODUCTO_EDITAR,
+        component: () => import("../components/cita/FormularioCita.vue"),
+        props:true
+      },
+      {
+        path: rutas.PRODUCTO_VER,
+        component: () => import("../components/cita/VistaPreviaCita.vue"),
+        props:true
+      },
+      {
+        path: rutas.PRODUCTO_LISTAR,
+        component: () => import("../components/cita/ListarCita.vue"),
+        props:true
+      },
+      
+      {
+        path:"/cita/",
+        component:() => import("../views/Cita.vue"),
+        meta:{
+          requiresAuth: true
+        },
+      }
+
+    ]
   }
+
+
+
+
 ]
 
 const router = new VueRouter({

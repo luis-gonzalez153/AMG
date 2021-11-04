@@ -28,28 +28,28 @@
         </v-card>
       </v-tab-item>
     </v-tabs-items>
-    <FormularioCiudadano />
+    <FormularioHerramienta />
   </v-card>
 </template>
 
 <script>
     export default {
-        name:"Ciudadano",
+        name:"Producto",
         components:{
-            FormularioCiudadano: () => import("../components/ciudadano/FormularioCiudadano.vue"),
-            ListarCiudadanos: () => import("../components/ciudadano/ListarCiudadanos.vue"),
-            VistaPreviaCiudadano: () => import("../components/ciudadano/VistaPreviaCiudadano.vue"),
+            FormularioProducto: () => import("../components/producto/FormularioProducto.vue"),
+            ListarProducto: () => import("../components/producto/ListarProducto.vue"),
+            VistaPreviaProducto: () => import("../components/producto/VistaPreviaProducto.vue"),
         },
         data () {
             return {
                 items:[
                     {
-                        componente:"FormularioCiudadano",
+                        componente:"FormularioProducto",
                         icono:"engineering",
                         nombre:"Formulario"
                     },
                     {
-                        componente:"ListarCiudadanos",
+                        componente:"ListarHerramienta",
                         icono:"format_list_bulleted",
                         nombre:"Listado"
                     },
