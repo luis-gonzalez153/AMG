@@ -28,7 +28,10 @@
         </v-card>
       </v-tab-item>
     </v-tabs-items>
-    <FormularioCiudadano />
+    <router-view>
+      <FormularioCiudadano />
+      <ListarCiudadanos/>
+    </router-view>
   </v-card>
 </template>
 

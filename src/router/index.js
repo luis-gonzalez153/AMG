@@ -1,7 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import rutas from "../functions/rutas";
-import Home from "../views/Home.vue";
 import { auth } from "../functions/firebase";
 
 Vue.use(VueRouter);
@@ -18,18 +17,38 @@ const routes = [
     component: () => import("../views/NotFound.vue")
   },
   {
-    path: "/",
-    name: "Home",
-    component: Home,
+    path: "promocion",
+    component:() => import("../components/promocion/ListarPromocion.vue"),
     meta:{
       requiresAuth: true
-    }
+    },
+    children:[
+      {
+        path: rutas.PROMOCION_REGISTRAR,
+        component: () => import("../components/promocion/FormularioPromocion.vue"),
+        props:true
+      },
+      {
+        path: rutas.PROMOCION_EDITAR,
+        component: () => import("../components/promocion/FormularioPromocion.vue"),
+        props:true
+      },
+      {
+        path: rutas.PROMOCION_VER,
+        component: () => import("../components/promocion/VistaPreviaPromocion.vue"),
+        props:true
+      },
+      {
+        path: rutas.PROMOCION_LISTAR,
+        component: () => import("../components/promocion/ListarPromocion.vue"),
+        props:true
+      },
+    ],
+  
   },
-
-
   {
     path:"/ciudadanos/",
-    component:() => import("../views/Ciudadano.vue"),
+    component:() => import("../components/ciudadano/ListarCiudadanos.vue"),
     meta:{
       requiresAuth: true
     },
@@ -54,15 +73,16 @@ const routes = [
         component: () => import("../components/ciudadano/ListarCiudadanos.vue"),
         props:true
       },
-    ]
+    ],
   },
 
 
-  {
-    path:"/herramienta/",
-    component:() => import("../views/Herramienta.vue"),
-    meta:{
-      requiresAuth: true
+      
+      {
+        path:"/herramienta/",
+        component:() => import("../components/herramienta/ListarHerramienta.vue"),
+        meta:{
+          requiresAuth: true          
     },
     children:[
       {
@@ -85,22 +105,11 @@ const routes = [
         component: () => import("../components/herramienta/ListarHerramienta.vue"),
         props:true
       },
-      
-      {
-        path:"/herramienta/",
-        component:() => import("../views/Herramienta.vue"),
-        meta:{
-          requiresAuth: true
-        },
-      }
-
-    ]
+    ],
   },
-
-  
   {
     path:"/producto/",
-    component:() => import("../views/Producto.vue"),
+    component:() => import("../components/producto/ListarProducto.vue"),
     meta:{
       requiresAuth: true
     },
@@ -125,63 +134,42 @@ const routes = [
         component: () => import("../components/producto/ListarProducto.vue"),
         props:true
       },
-      
-      {
-        path:"/producto/",
-        component:() => import("../views/Producto.vue"),
-        meta:{
-          requiresAuth: true
-        },
-      }
-
-    ]
+    ],
   },
-
 
 
   {
     path:"/cita/",
-    component:() => import("../views/Cita.vue"),
+    component:() => import("../components/cita/ListarCita.vue"),
     meta:{
       requiresAuth: true
     },
     children:[
       {
-        path: rutas.PRODUCTO_REGISTRAR,
+        path: rutas.CITA_REGISTRAR,
         component: () => import("../components/cita/FormularioCita.vue"),
         props:true
       },
       {
-        path: rutas.PRODUCTO_EDITAR,
+        path: rutas.CITA_EDITAR,
         component: () => import("../components/cita/FormularioCita.vue"),
         props:true
       },
       {
-        path: rutas.PRODUCTO_VER,
+        path: rutas.CITA_VER,
         component: () => import("../components/cita/VistaPreviaCita.vue"),
         props:true
       },
       {
-        path: rutas.PRODUCTO_LISTAR,
+        path: rutas.CITA_LISTAR,
         component: () => import("../components/cita/ListarCita.vue"),
         props:true
       },
-      
-      {
-        path:"/cita/",
-        component:() => import("../views/Cita.vue"),
-        meta:{
-          requiresAuth: true
-        },
-      }
-
-    ]
-  }
-
-
-
+    ],
+  },
 
 ]
+
 
 const router = new VueRouter({
   mode: "history",

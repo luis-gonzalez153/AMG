@@ -9,7 +9,7 @@
       <v-toolbar
         flat
       >
-        <v-toolbar-title>Administrar Usuarios </v-toolbar-title>
+        <v-toolbar-title>Administrar Promociones </v-toolbar-title>
         <v-divider
           class="mx-4"
           inset
@@ -28,15 +28,13 @@
               v-bind="attrs"
               v-on="on"
             >
-              Nuevo Usuario
+              Nueva Promoción
             </v-btn>
           </template>
           <v-card>
             <v-card-title>
               <span class="text-h5">{{ formTitle }}</span>
-               <router-view>
-      <FormularioCiudadano />
-    </router-view>
+              
             </v-card-title>
 
             <v-card-text>
@@ -59,7 +57,7 @@
                   >
                     <v-text-field
                       v-model="editedItem.categoria"
-                      label="Categoria"
+                      label="Precio"
                     ></v-text-field>
                   </v-col>
                   <v-col
@@ -69,7 +67,7 @@
                   >
                     <v-text-field
                       v-model="editedItem.fat"
-                      label="Identificacion"
+                      label="Serial"
                     ></v-text-field>
                   </v-col>
                   <v-col
@@ -79,7 +77,7 @@
                   >
                     <v-text-field
                       v-model="editedItem.carbs"
-                      label="Correo"
+                      label="Unidades"
                     ></v-text-field>
                   </v-col>
                   <v-col
@@ -89,7 +87,7 @@
                   >
                     <v-text-field
                       v-model="editedItem.protein"
-                      label="Telefono"
+                      label="Provedor"
                     ></v-text-field>
                   </v-col>
                 </v-row>
@@ -161,32 +159,32 @@
       dialogDelete: false,
       headers: [
         {
-          text: 'Nombres',
+          text: 'Nombre',
           align: 'start',
           sortable: false,
           value: 'name',
         },
-        { text: 'Categoria', value: 'Categoria' },
-        { text: 'Identificacíon', value: 'Identificacion' },
-        { text: 'E-mail', value: 'Correo' },
-        { text: 'Teléfono', value: 'Telefono' },
+        { text: 'Precio', value: 'Precio' },
+        { text: 'Serial', value: 'Serial' },
+        { text: 'Unidades', value: 'Unidades' },
+        { text: 'Provedor', value: 'Provedor' },
         { text: 'Acción', value: 'actions', sortable: false },
       ],
       desserts: [],
       editedIndex: -1,
       editedItem: {
         name: '',
-        Categoria: 0,
-        Identificacion: 0,
-        Correo: 0,
-        Telefono: 0,
+        Precio: 0,
+        Serial: 0,
+        Unidades: 0,
+        Provedor: 0,
       },
       defaultItem: {
         name: '',
-        Categoria: 0,
-        Identificacion: 0,
-        Correo: 0,
-        Telefono: 0,
+        Precio: 0,
+        Serial: 0,
+        Unidades: 0,
+        Provedor: 0,
       },
     }),
 
@@ -213,11 +211,11 @@
       initialize () {
         this.desserts = [
           {
-            name: 'Luis Gonzalez',
-            Categoria: 'Admin',
-            Identificacion: '1116615153',
-            Correo: 'luisbbm55@gmail.com',
-            Telefono: '3142930899',
+            name: 'Filtro A/C Sandero',
+            Precio: '$22.000',
+            Serial: '102134',
+            Unidades: '15',
+            Provedor: 'AirFlow',
           },
          
         ]

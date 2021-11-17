@@ -28,7 +28,10 @@
         </v-card>
       </v-tab-item>
     </v-tabs-items>
-    <FormularioHerramienta />
+    <router-view>
+    <ListarHerramienta/>
+    <FormularioHerramienta/>
+    </router-view>
   </v-card>
 </template>
 

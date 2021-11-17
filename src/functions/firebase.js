@@ -2,7 +2,6 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 
-
 const configuracionFirebase = {
   apiKey: "AIzaSyAVKpY9mVYOyK0tR8HG9X0VSkikBd9icAg",
   authDomain: "amg-yopal.firebaseapp.com",

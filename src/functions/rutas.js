@@ -2,6 +2,12 @@ const rutas = {
     //Url para el perfil de usuario
     PERFIL_USUARIO: "/usuario/perfil_usuario",
 
+    //Promociones
+    PROMOCION_LISTAR:"/",
+    PROMOCION_REGISTRAR:"/registrar/",
+    PROMOCION_EDITAR:"/editar/:id",
+    PROMOCION_VER:"/ver/:id",
+
     //Ciudadanos
     CIUDADANO_LISTAR:"/",
     CIUDADANO_REGISTRAR:"/registrar/",

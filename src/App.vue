@@ -17,9 +17,10 @@
 
 
 			<v-btn
+			
 				plain
 				class="ma-2"
-				to="/"
+				to="/producto"
 			>
 				<v-icon
 					left
@@ -98,8 +99,11 @@
 		<v-main class="p-2">
 			<v-container style="height: auto;">
 				<router-view>
+					<ListarPromocion/>
 					<Ciudadano/>
+					<ListarCiudadanos />
 					<Herramienta/>
+					<ListarHerramienta/>
 					<Producto/>
 					<Cita/>
 				</router-view>
@@ -139,8 +143,13 @@ export default {
 	name: 'App',
 	components: {
 	Login: () => import("./components/Login.vue"),
+
 	Ciudadano: () => import("./views/Ciudadano.vue"),
+	ListarCiudadanos: () => import("./components/ciudadano/ListarCiudadanos.vue"),
+
 	Herramienta: ()=> import("./views/Herramienta.vue"),
+	ListarHerramienta: () => import("./components/herramienta/ListarHerramienta.vue"),
+	
 	Producto: ()=> import("./views/Producto.vue"),
 	Cita: ()=> import("./views/Cita.vue"),
 	},
