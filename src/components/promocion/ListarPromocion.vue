@@ -47,7 +47,7 @@
                   >
                     <v-text-field
                       v-model="editedItem.name"
-                      label="Nombre"
+                      label="FechaInicio"
                     ></v-text-field>
                   </v-col>
                   <v-col
@@ -57,7 +57,7 @@
                   >
                     <v-text-field
                       v-model="editedItem.categoria"
-                      label="Precio"
+                      label="FechaFin"
                     ></v-text-field>
                   </v-col>
                   <v-col
@@ -67,7 +67,7 @@
                   >
                     <v-text-field
                       v-model="editedItem.fat"
-                      label="Serial"
+                      label="Descripcion"
                     ></v-text-field>
                   </v-col>
                   <v-col
@@ -77,7 +77,7 @@
                   >
                     <v-text-field
                       v-model="editedItem.carbs"
-                      label="Unidades"
+                      label="Ubicacion"
                     ></v-text-field>
                   </v-col>
                   <v-col
@@ -87,7 +87,7 @@
                   >
                     <v-text-field
                       v-model="editedItem.protein"
-                      label="Provedor"
+                      label=""
                     ></v-text-field>
                   </v-col>
                 </v-row>
@@ -159,38 +159,36 @@
       dialogDelete: false,
       headers: [
         {
-          text: 'Nombre',
+          text: 'Fecha Inicio',
           align: 'start',
           sortable: false,
-          value: 'name',
+          value: 'FechaInicio',
         },
-        { text: 'Precio', value: 'Precio' },
-        { text: 'Serial', value: 'Serial' },
-        { text: 'Unidades', value: 'Unidades' },
-        { text: 'Provedor', value: 'Provedor' },
+        { text: 'Fecha Fin', value: 'FechaFin' },
+        { text: 'Descripción', value: 'Descripcion' },
+        { text: 'Ubicación', value: 'Ubicacion' },
         { text: 'Acción', value: 'actions', sortable: false },
       ],
       desserts: [],
       editedIndex: -1,
       editedItem: {
-        name: '',
-        Precio: 0,
-        Serial: 0,
-        Unidades: 0,
-        Provedor: 0,
+        FechaInicio: '',
+        FechaFin: 0,
+        Descripcion: 0,
+        Ubicacion: 0,
+
       },
       defaultItem: {
-        name: '',
-        Precio: 0,
-        Serial: 0,
-        Unidades: 0,
-        Provedor: 0,
+        FechaInicio: '',
+        FechaFin: 0,
+        Descripcion: 0,
+        Ubicacion: 0,
       },
     }),
 
     computed: {
       formTitle () {
-        return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
+        return this.editedIndex === -1 ? 'Nueva Promocion' : 'Editar Promocion'
       },
     },
 
@@ -211,11 +209,10 @@
       initialize () {
         this.desserts = [
           {
-            name: 'Filtro A/C Sandero',
-            Precio: '$22.000',
-            Serial: '102134',
-            Unidades: '15',
-            Provedor: 'AirFlow',
+            FechaInicio: '15/11/2021/8:00',
+            FechaFin: '15/11/2021/16:00',
+            Descripcion: '15% de descuento en el total de tú factura',
+            Ubicacion: 'Yopal',
           },
          
         ]

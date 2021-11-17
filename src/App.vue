@@ -20,7 +20,7 @@
 			
 				plain
 				class="ma-2"
-				to="/producto"
+				to="/promocion"
 			>
 				<v-icon
 					left
@@ -99,7 +99,7 @@
 		<v-main class="p-2">
 			<v-container style="height: auto;">
 				<router-view>
-					<ListarPromocion/>
+					<Promocion/>
 					<Ciudadano/>
 					<ListarCiudadanos />
 					<Herramienta/>

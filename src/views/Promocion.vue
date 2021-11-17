@@ -28,8 +28,8 @@
         </v-card>
       </v-tab-item>
     </v-tabs-items>
-    <ListarCita/>
-    <FormularioCita />
+    <ListarPromocion/>
+    <FormularioPromocion />
   </v-card>
 </template>
 
@@ -37,20 +37,20 @@
     export default {
         name:"Cita",
         components:{
-            FormularioCita: () => import("../components/cita/FormularioCita.vue"),
-            ListarCita: () => import("../components/cita/ListarCita.vue"),
-            VistaPreviaCita: () => import("../components/cita/VistaPreviaCita.vue"),
+            FormularioCita: () => import("../components/promocion/FormularioPromocion.vue"),
+            ListarCita: () => import("../components/promocion/ListarPromocion.vue"),
+            VistaPreviaCita: () => import("../components/promocion/VistaPreviaPromocion.vue"),
         },
         data () {
             return {
                 items:[
                     {
-                        componente:"FormularioCita",
+                        componente:"FormularioPromocion",
                         icono:"engineering",
                         nombre:"Formulario"
                     },
                     {
-                        componente:"ListarCita",
+                        componente:"ListarPromocion",
                         icono:"format_list_bulleted",
                         nombre:"Listado"
                     },

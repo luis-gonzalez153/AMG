@@ -17,7 +17,7 @@ const routes = [
     component: () => import("../views/NotFound.vue")
   },
   {
-    path: "promocion",
+    path: "/promocion/",
     component:() => import("../components/promocion/ListarPromocion.vue"),
     meta:{
       requiresAuth: true

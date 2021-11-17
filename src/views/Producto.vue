@@ -28,6 +28,7 @@
         </v-card>
       </v-tab-item>
     </v-tabs-items>
+    <ListarProducto/>
     <FormularioHerramienta />
   </v-card>
 </template>
