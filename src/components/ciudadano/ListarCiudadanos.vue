@@ -1,273 +1,93 @@
 <template>
-  <v-data-table
-    :headers="headers"
-    :items="desserts"
-    sort-by="categoria"
-    class="elevation-1"
-  >
-    <template v-slot:top>
-      <v-toolbar
-        flat
-      >
-        <v-toolbar-title>Administrar Usuarios </v-toolbar-title>
-        <v-divider
-          class="mx-4"
-          inset
-          vertical
-        ></v-divider>
-        <v-spacer></v-spacer>
-        <v-dialog
-          v-model="dialog"
-          max-width="500px"
+    <v-main class="mx-3 my-0 pt-3">
+        <v-data-table
+            :headers="headers"
+            :items="usuarios"
+            sort-by="categoria"
+            class="elevation-1"
         >
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn
-              color="primary"
-              dark
-              class="mb-2"
-              v-bind="attrs"
-              v-on="on"
-            >
-              Nuevo Usuario
-            </v-btn>
-          </template>
-          <v-card>
-            <v-card-title>
-              <span class="text-h5">{{ formTitle }}</span>
-               <router-view>
-      <FormularioCiudadano />
-    </router-view>
-            </v-card-title>
-
-            <v-card-text>
-              <v-container>
-                <v-row>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.name"
-                      label="Nombre"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.categoria"
-                      label="Categoria"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.fat"
-                      label="Identificacion"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.carbs"
-                      label="Correo"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.protein"
-                      label="Telefono"
-                    ></v-text-field>
-                  </v-col>
-                </v-row>
-              </v-container>
-            </v-card-text>
-
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn
-                color="blue darken-1"
-                text
-                @click="close"
-              >
-                Cancel
-              </v-btn>
-              <v-btn
-                color="blue darken-1"
-                text
-                @click="save"
-              >
-                Save
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
-        <v-dialog v-model="dialogDelete" max-width="500px">
-          <v-card>
-            <v-card-title class="text-h5">Are you sure you want to delete this item?</v-card-title>
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" text @click="closeDelete">Cancel</v-btn>
-              <v-btn color="blue darken-1" text @click="deleteItemConfirm">OK</v-btn>
-              <v-spacer></v-spacer>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
-      </v-toolbar>
-    </template>
-    <template v-slot:item.actions="{ item }">
-      <v-icon
-        small
-        class="mr-2"
-        @click="editItem(item)"
-      >
-        mdi-pencil
-      </v-icon>
-      <v-icon
-        small
-        @click="deleteItem(item)"
-      >
-        mdi-delete
-      </v-icon>
-    </template>
-    <template v-slot:no-data>
-      <v-btn
-        color="primary"
-        @click="initialize"
-      >
-        Reset
-      </v-btn>
-    </template>
-  </v-data-table>
+            <template v-slot:top>
+                <v-toolbar flat>
+                    <v-toolbar-title>Administrar Usuarios </v-toolbar-title>
+                    <v-divider class="mx-4" inset vertical></v-divider>
+                    <v-spacer></v-spacer>
+                </v-toolbar>
+            </template>
+            <template v-slot:item.actions="{ item }">
+                <v-icon small class="mx-1">
+                    mdi-pencil
+                </v-icon>
+                <v-icon small class="mx-1">
+                    mdi-delete
+                </v-icon>
+            </template>
+        </v-data-table>
+    </v-main>
 </template>
 
 <script>
-  export default {
-    data: () => ({
-      dialog: false,
-      dialogDelete: false,
-      headers: [
-        {
-          text: 'Nombres',
-          align: 'start',
-          sortable: false,
-          value: 'name',
+    import { db } from "../../functions/firebase";
+    import Swal from "sweetalert2";
+
+    export default {
+        data: () => ({
+            headers: [
+                {
+                    text: "id",
+                    align: "center",
+                    sortable: false,
+                    value: "id",
+                },
+                {
+                    text: "Nombres",
+                    align: "center",
+                    sortable: true,
+                    value: "nombres",
+                },
+                {
+                    text: "Apellidos",
+                    align: "center",
+                    sortable: true,
+                    value: "nombres",
+                },
+                { text: "Identificacíon", value: "identificacion" },
+                { text: "Genero", value: "genero" },
+                { text: "E-mail", value: "email" },
+                { text: "Teléfono", value: "telefono" },
+                { text: "Dirección", value: "direccion" },
+                { text: "Acción", value: "actions", sortable: false },
+            ],
+            usuarios: [],
+        }),
+        created() {
+            Swal.fire({
+                title: "Obteniendo registros!",
+                text: "Por favor espere un momento...",
+                icon: "info",
+            });
+            Swal.showLoading();
+            this.obtenerUsuarios()
+                .then((respuesta) => {
+                    respuesta.forEach((element) => {
+                        this.usuarios = [
+                            ...this.usuarios,
+                            { id: element.id, ...element.data() },
+                        ];
+                    });
+                    Swal.close();
+                })
+                .catch(() => {
+                    Swal.fire({
+                        title: "Error!",
+                        text: "Ocurrió un error en el servidor!",
+                        icon: "error",
+                    });
+                });
         },
-        { text: 'Categoria', value: 'Categoria' },
-        { text: 'Identificacíon', value: 'Identificacion' },
-        { text: 'E-mail', value: 'Correo' },
-        { text: 'Teléfono', value: 'Telefono' },
-        { text: 'Acción', value: 'actions', sortable: false },
-      ],
-      desserts: [],
-      editedIndex: -1,
-      editedItem: {
-        name: '',
-        Categoria: 0,
-        Identificacion: 0,
-        Correo: 0,
-        Telefono: 0,
-      },
-      defaultItem: {
-        name: '',
-        Categoria: 0,
-        Identificacion: 0,
-        Correo: 0,
-        Telefono: 0,
-      },
-    }),
-
-    computed: {
-      formTitle () {
-        return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
-      },
-    },
-
-    watch: {
-      dialog (val) {
-        val || this.close()
-      },
-      dialogDelete (val) {
-        val || this.closeDelete()
-      },
-    },
-
-    created () {
-      this.initialize()
-    },
-
-    methods: {
-      initialize () {
-        this.desserts = [
-          {
-            name: 'Luis Gonzalez',
-            Categoria: 'Admin',
-            Identificacion: '1116615153',
-            Correo: 'luisbbm55@gmail.com',
-            Telefono: '3142930899',
-          },
-         
-        ]
-      },
-
-      editItem (item) {
-        this.editedIndex = this.desserts.indexOf(item)
-        this.editedItem = Object.assign({}, item)
-        this.dialog = true
-      },
-
-      deleteItem (item) {
-        this.editedIndex = this.desserts.indexOf(item)
-        this.editedItem = Object.assign({}, item)
-        this.dialogDelete = true
-      },
-
-      deleteItemConfirm () {
-        this.desserts.splice(this.editedIndex, 1)
-        this.closeDelete()
-      },
-
-      close () {
-        this.dialog = false
-        this.$nextTick(() => {
-          this.editedItem = Object.assign({}, this.defaultItem)
-          this.editedIndex = -1
-        })
-      },
-
-      closeDelete () {
-        this.dialogDelete = false
-        this.$nextTick(() => {
-          this.editedItem = Object.assign({}, this.defaultItem)
-          this.editedIndex = -1
-        })
-      },
-
-      save () {
-        if (this.editedIndex > -1) {
-          Object.assign(this.desserts[this.editedIndex], this.editedItem)
-        } else {
-          this.desserts.push(this.editedItem)
-        }
-        this.close()
-      },
-    },
-  }
+        methods: {
+            obtenerUsuarios: () => db.collection("ciudadanos").get(),
+        },
+    };
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

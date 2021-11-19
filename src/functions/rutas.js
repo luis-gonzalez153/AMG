@@ -3,40 +3,40 @@ const rutas = {
     PERFIL_USUARIO: "/usuario/perfil_usuario",
 
     //Promociones
-    PROMOCION_LISTAR:"/",
-    PROMOCION_REGISTRAR:"/registrar/",
-    PROMOCION_EDITAR:"/editar/:id",
-    PROMOCION_VER:"/ver/:id",
+    PROMOCION_LISTAR: "/promociones/",
+    PROMOCION_REGISTRAR: "/promocion/registrar/",
+    PROMOCION_EDITAR: "/promocion/editar/:id",
+    PROMOCION_VER: "/promocion/ver/:id",
 
     //Ciudadanos
-    CIUDADANO_LISTAR:"/",
-    CIUDADANO_REGISTRAR:"/registrar/",
-    CIUDADANO_EDITAR:"/editar/:id",
-    CIUDADANO_VER:"/ver/:id",
+    CIUDADANO_LISTAR: "/usuarios/",
+    CIUDADANO_REGISTRAR: "/usuario/registrar/",
+    CIUDADANO_EDITAR: "/usuario/editar/:id",
+    CIUDADANO_VER: "/usuario/ver/:id",
 
     //Herramientas
-    HERRAMIENTA_LISTAR:"/",
-    HERRAMIENTA_REGISTRAR:"/registrar/",
-    HERRAMIENTA_EDITAR:"/editar/:id",
-    HERRAMIENTA_VER:"/ver/:id",
+    HERRAMIENTA_LISTAR: "/herramientas/",
+    HERRAMIENTA_REGISTRAR: "/herramienta/registrar/",
+    HERRAMIENTA_EDITAR: "/herramienta/editar/:id",
+    HERRAMIENTA_VER: "/herramienta/ver/:id",
 
     //Productos
-    PRODUCTO_LISTAR:"/",
-    PRODUCTO_REGISTRAR:"/registrar/",
-    PRODUCTO_EDITAR:"/editar/:id",
-    PRODUCTO_VER:"/ver/:id",
+    PRODUCTO_LISTAR: "/productos/",
+    PRODUCTO_REGISTRAR: "/producto/registrar/",
+    PRODUCTO_EDITAR: "/producto/editar/:id",
+    PRODUCTO_VER: "/producto/ver/:id",
 
     //Url para citas
-    CITA_LISTAR: "/",
-    CITA_REGISTRAR: "/registrar/",
-    CITA_EDITAR: "/citas/editar/:id",
-    CITA_VER: "/citas/ver/:id",
+    CITA_LISTAR: "/citas/",
+    CITA_REGISTRAR: "/rcita/egistrar/",
+    CITA_EDITAR: "/cita/citas/editar/:id",
+    CITA_VER: "/cita/citas/ver/:id",
 
     //Reparaciones
-    REPARACIONES_LISTAR:"/",
-    REPARACIONES_REGISTRAR:"/registrar/",
-    REPARACIONES_EDITAR:"/editar/:id",
-    REPARACIONES_VER:"/ver/:id",
-}
+    REPARACIONES_LISTAR: "/reparaciones/",
+    REPARACIONES_REGISTRAR: "/reparacion/registrar/",
+    REPARACIONES_EDITAR: "/reparacion/editar/:id",
+    REPARACIONES_VER: "/reparacion/ver/:id",
+};
 
 export default rutas;
