@@ -17,7 +17,7 @@ const routes = [
             import("../components/promocion/FormularioPromocion.vue"),
         props: true,
         meta: {
-            // requiresAuth: true
+            requiresAuth: true,
         },
     },
     {
@@ -26,7 +26,7 @@ const routes = [
             import("../components/promocion/FormularioPromocion.vue"),
         props: true,
         meta: {
-            // requiresAuth: true
+            requiresAuth: true,
         },
     },
     {
@@ -35,7 +35,7 @@ const routes = [
             import("../components/promocion/VistaPreviaPromocion.vue"),
         props: true,
         meta: {
-            // requiresAuth: true
+            requiresAuth: true,
         },
     },
     {
@@ -43,7 +43,7 @@ const routes = [
         component: () => import("../components/promocion/ListarPromocion.vue"),
         props: true,
         meta: {
-            // requiresAuth: true
+            requiresAuth: true,
         },
     },
     {
@@ -60,7 +60,7 @@ const routes = [
             import("../components/ciudadano/FormularioCiudadano.vue"),
         props: true,
         meta: {
-            // requiresAuth: true,
+            requiresAuth: true,
         },
     },
     {
@@ -69,7 +69,7 @@ const routes = [
             import("../components/ciudadano/FormularioCiudadano.vue"),
         props: true,
         meta: {
-            // requiresAuth: true,
+            requiresAuth: true,
         },
     },
     {
@@ -78,7 +78,7 @@ const routes = [
             import("../components/ciudadano/VistaPreviaCiudadano.vue"),
         props: true,
         meta: {
-            // requiresAuth: true,
+            requiresAuth: true,
         },
     },
     {
@@ -87,7 +87,7 @@ const routes = [
         component: () => import("../components/ciudadano/ListarCiudadanos.vue"),
         props: true,
         meta: {
-            // requiresAuth: true,
+            requiresAuth: true,
         },
     },
     {
@@ -96,7 +96,7 @@ const routes = [
             import("../components/herramienta/FormularioHerramienta.vue"),
         props: true,
         meta: {
-            // requiresAuth: true,
+            requiresAuth: true,
         },
     },
     {
@@ -105,7 +105,7 @@ const routes = [
             import("../components/herramienta/FormularioHerramienta.vue"),
         props: true,
         meta: {
-            // requiresAuth: true,
+            requiresAuth: true,
         },
     },
     {
@@ -114,7 +114,7 @@ const routes = [
             import("../components/herramienta/VistaPreviaHerramienta.vue"),
         props: true,
         meta: {
-            // requiresAuth: true,
+            requiresAuth: true,
         },
     },
     {
@@ -123,7 +123,7 @@ const routes = [
             import("../components/herramienta/ListarHerramienta.vue"),
         props: true,
         meta: {
-            // requiresAuth: true,
+            requiresAuth: true,
         },
     },
     {
@@ -132,7 +132,7 @@ const routes = [
             import("../components/producto/FormularioProducto.vue"),
         props: true,
         meta: {
-            // requiresAuth: true,
+            requiresAuth: true,
         },
     },
     {
@@ -141,7 +141,7 @@ const routes = [
             import("../components/producto/FormularioProducto.vue"),
         props: true,
         meta: {
-            // requiresAuth: true,
+            requiresAuth: true,
         },
     },
     {
@@ -150,7 +150,7 @@ const routes = [
             import("../components/producto/VistaPreviaProducto.vue"),
         props: true,
         meta: {
-            // requiresAuth: true,
+            requiresAuth: true,
         },
     },
     {
@@ -158,7 +158,7 @@ const routes = [
         component: () => import("../components/producto/ListarProducto.vue"),
         props: true,
         meta: {
-            // requiresAuth: true,
+            requiresAuth: true,
         },
     },
     {
@@ -166,7 +166,7 @@ const routes = [
         component: () => import("../components/cita/FormularioCita.vue"),
         props: true,
         meta: {
-            // requiresAuth: true,
+            requiresAuth: true,
         },
     },
     {
@@ -174,7 +174,7 @@ const routes = [
         component: () => import("../components/cita/FormularioCita.vue"),
         props: true,
         meta: {
-            // requiresAuth: true,
+            requiresAuth: true,
         },
     },
     {
@@ -182,7 +182,7 @@ const routes = [
         component: () => import("../components/cita/VistaPreviaCita.vue"),
         props: true,
         meta: {
-            // requiresAuth: true,
+            requiresAuth: true,
         },
     },
     {
@@ -190,7 +190,7 @@ const routes = [
         component: () => import("../components/cita/ListarCita.vue"),
         props: true,
         meta: {
-            // requiresAuth: true,
+            requiresAuth: true,
         },
     },
     {
@@ -199,7 +199,7 @@ const routes = [
             import("../components/reparaciones/FormularioReparaciones.vue"),
         props: true,
         meta: {
-            // requiresAuth: true,
+            requiresAuth: true,
         },
     },
     {
@@ -208,7 +208,7 @@ const routes = [
             import("../components/reparaciones/FormularioReparaciones.vue"),
         props: true,
         meta: {
-            // requiresAuth: true,
+            requiresAuth: true,
         },
     },
     {
@@ -217,7 +217,7 @@ const routes = [
             import("../components/reparaciones/VistaPreviaReparaciones.vue"),
         props: true,
         meta: {
-            // requiresAuth: true,
+            requiresAuth: true,
         },
     },
     {
@@ -226,7 +226,7 @@ const routes = [
             import("../components/reparaciones/ListarReparaciones.vue"),
         props: true,
         meta: {
-            // requiresAuth: true,
+            requiresAuth: true,
         },
     },
     {
