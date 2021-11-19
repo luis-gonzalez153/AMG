@@ -45,7 +45,7 @@
         methods:{
             login(){
                 auth.signInWithEmailAndPassword(this.email, this.password).then(() =>
-                    window.location.href = "/"
+                    window.location.href = "Promocion"
                 ).catch(error =>{
                     Swal.fire({
                     title: 'Error!',

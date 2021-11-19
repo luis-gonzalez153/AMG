@@ -31,6 +31,12 @@ const rutas = {
     CITA_REGISTRAR: "/registrar/",
     CITA_EDITAR: "/citas/editar/:id",
     CITA_VER: "/citas/ver/:id",
+
+    //Reparaciones
+    REPARACIONES_LISTAR:"/",
+    REPARACIONES_REGISTRAR:"/registrar/",
+    REPARACIONES_EDITAR:"/editar/:id",
+    REPARACIONES_VER:"/ver/:id",
 }
 
 export default rutas;

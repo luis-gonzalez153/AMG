@@ -9,7 +9,7 @@
       <v-toolbar
         flat
       >
-        <v-toolbar-title>Administrar Promociones </v-toolbar-title>
+        <v-toolbar-title>Administrar Reparaciones </v-toolbar-title>
         <v-divider
           class="mx-4"
           inset
@@ -28,7 +28,7 @@
               v-bind="attrs"
               v-on="on"
             >
-              Nueva Promoción
+              Ingresar Vehículo
             </v-btn>
           </template>
           <v-card>
@@ -47,7 +47,7 @@
                   >
                     <v-text-field
                       v-model="editedItem.name"
-                      label="Fecha Inicio"
+                      label="FechaInicio"
                     ></v-text-field>
                   </v-col>
                   <v-col
@@ -57,7 +57,7 @@
                   >
                     <v-text-field
                       v-model="editedItem.categoria"
-                      label="Fecha Fin"
+                      label="FechaFin"
                     ></v-text-field>
                   </v-col>
                   <v-col
@@ -67,7 +67,7 @@
                   >
                     <v-text-field
                       v-model="editedItem.fat"
-                      label="Descripción"
+                      label="Descripcion"
                     ></v-text-field>
                   </v-col>
                   <v-col
@@ -77,7 +77,7 @@
                   >
                     <v-text-field
                       v-model="editedItem.carbs"
-                      label="Ubicación"
+                      label="Ubicacion"
                     ></v-text-field>
                   </v-col>
                   <v-col

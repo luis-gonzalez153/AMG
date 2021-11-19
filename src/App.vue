@@ -13,7 +13,7 @@
 					alt="AMG"
 				>
 			</v-avatar>
-			<v-toolbar-title class="mx-4">AMG ADMIN</v-toolbar-title>
+			<v-toolbar-title class="mx-4">AMG</v-toolbar-title>
 
 
 			<v-btn
@@ -84,6 +84,20 @@
 				Citas
 			</v-btn>
 
+			<v-btn
+				to="/reparaciones"
+				class="ma-2"
+				plain
+			>
+				<v-icon
+					dark
+					left
+				>
+					build
+				</v-icon>
+				Reparaciones
+			</v-btn>
+
 			<v-spacer></v-spacer>
 			<v-btn
 				plain
@@ -106,6 +120,7 @@
 					<ListarHerramienta/>
 					<Producto/>
 					<Cita/>
+					<Reparaciones/>
 				</router-view>
 			</v-container>
 		</v-main>
@@ -122,7 +137,7 @@
 				dark
 			>
 				<v-card-text>
-					<h1>Página administrativa de AMG Aires Acondicionados Yopal</h1>
+					<h1>Página administrativa AMG Aires Acondicionados Yopal</h1>
 				</v-card-text>
 
 				<v-divider></v-divider>
@@ -144,14 +159,23 @@ export default {
 	components: {
 	Login: () => import("./components/Login.vue"),
 
+	Promocion: () => import("./views/Promocion.vue"),
+	ListarPromocion: () => import("./components/promocion/ListarPromocion.vue"),
+
 	Ciudadano: () => import("./views/Ciudadano.vue"),
 	ListarCiudadanos: () => import("./components/ciudadano/ListarCiudadanos.vue"),
+
+	Producto: ()=> import("./views/Producto.vue"),
+	ListarProducto: () => import("./components/producto/ListarProducto.vue"),
 
 	Herramienta: ()=> import("./views/Herramienta.vue"),
 	ListarHerramienta: () => import("./components/herramienta/ListarHerramienta.vue"),
 	
-	Producto: ()=> import("./views/Producto.vue"),
 	Cita: ()=> import("./views/Cita.vue"),
+	ListarCita: () => import("./components/cita/ListarCita.vue"),
+
+	Reparaciones: ()=> import("./views/Reparaciones.vue"),
+	ListarReparaciones: () => import("./components/reparaciones/ListarReparaciones.vue"),
 	},
 	methods:{
 		logOut(){

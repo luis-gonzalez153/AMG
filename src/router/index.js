@@ -168,6 +168,36 @@ const routes = [
     ],
   },
 
+  {
+    path:"/reparaciones/",
+    component:() => import("../components/reparaciones/ListarReparaciones.vue"),
+    meta:{
+      requiresAuth: true
+    },
+    children:[
+      {
+        path: rutas.REPARACIONES_REGISTRAR,
+        component: () => import("../components/reparaciones/FormularioReparaciones.vue"),
+        props:true
+      },
+      {
+        path: rutas.REPARACIONES_EDITAR,
+        component: () => import("../components/reparaciones/FormularioReparaciones.vue"),
+        props:true
+      },
+      {
+        path: rutas.REPARACIONES_VER,
+        component: () => import("../components/reparaciones/VistaPreviaReparaciones.vue"),
+        props:true
+      },
+      {
+        path: rutas.REPARACIONES_LISTAR,
+        component: () => import("../components/reparaciones/ListarReparaciones.vue"),
+        props:true
+      },
+    ],
+  },
+
 ]
 
 
