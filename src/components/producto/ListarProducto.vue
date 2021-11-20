@@ -51,7 +51,7 @@
                     value: "marca",
                 },
                 { text: "Descripción", value: "nombre" },
-                { text: "Categotia", value: "categoriaherramienta" },
+                { text: "Categotia", value: "categoriaproducto" },
                 { text: "Precio", value: "precio" },
                 { text: "Provedor", value: "provedor" },
                 { text: "Tel. Provedor", value: "provedortelefono" },

@@ -2,7 +2,7 @@
     <v-main class="mx-3 my-0 pt-3">
         <v-data-table
             :headers="headers"
-            :items="reparaciones"
+            :items="reparacion"
             sort-by="categoria"
             class="elevation-1"
         >
@@ -14,10 +14,10 @@
                 </v-toolbar>
             </template>
             <template v-slot:item.actions="{ item }">
-                <v-icon small class="mr-2">
+                <v-icon small class="mx-1">
                     mdi-pencil
                 </v-icon>
-                <v-icon small>
+                <v-icon small class="mx-1">
                     mdi-delete
                 </v-icon>
             </template>
@@ -32,24 +32,32 @@
     export default {
         data: () => ({
             headers: [
-                {
+               {
                     text: "id",
                     align: "center",
                     sortable: false,
                     value: "id",
                 },
                 {
-                    text: "Fecha Inicio",
-                    align: "start",
-                    sortable: false,
-                    value: "fecha_inicio",
+                    text: "Fecha Reparación",
+                    align: "center",
+                    sortable: true,
+                    value: "fechareparacion",
                 },
-                { text: "Fecha Fin", value: "fecha_fin" },
-                { text: "Descripción", value: "descripcion" },
-                { text: "Ubicación", value: "ubicacion" },
+                {
+                    text: "Cita",
+                    align: "center",
+                    sortable: true,
+                    value: "cita",
+                },
+                { text: "Horario", value: "horarioreparacion" },
+                { text: "Encargado", value: "empleadoreparacion" },
+                { text: "Productos", value: "productoreparacion" },
+                { text: "Tipo Reparación", value: "tiporeparacion" },
+                { text: "Comentarios", value: "comentarios" },
                 { text: "Acción", value: "actions", sortable: false },
             ],
-            reparaciones: [],
+            reparacion: [],
         }),
         created() {
             Swal.fire({
@@ -58,11 +66,11 @@
                 icon: "info",
             });
             Swal.showLoading();
-            this.obtenerReparaciones()
+            this.obtenerReparacion()
                 .then((respuesta) => {
                     respuesta.forEach((element) => {
-                        this.reparaciones = [
-                            ...this.reparaciones,
+                        this.reparacion = [
+                            ...this.reparacion,
                             { id: element.id, ...element.data() },
                         ];
                     });
@@ -76,9 +84,8 @@
                     });
                 });
         },
-
         methods: {
-            obtenerReparaciones: () => db.collection("reparaciones").get(),
+            obtenerReparacion: () => db.collection("reparaciones").get(),
         },
     };
 </script>
