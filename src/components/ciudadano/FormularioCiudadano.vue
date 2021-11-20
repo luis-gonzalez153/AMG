@@ -202,7 +202,7 @@
                         <v-col cols="12" md="6">
                             <v-text-field
                                 v-model="item.fecha_finalizacion"
-                                label="Fecha de inicio"
+                                label="Fecha de Finalización"
                                 type="text"
                                 prepend-icon="mdi-calendar"
                                 outlined

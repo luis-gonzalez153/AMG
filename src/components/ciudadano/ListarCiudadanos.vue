@@ -17,7 +17,7 @@
                 <v-icon small class="mx-1">
                     mdi-pencil
                 </v-icon>
-                <v-icon small class="mx-1">
+                <v-icon small class="mx-1"> 
                     mdi-delete
                 </v-icon>
             </template>

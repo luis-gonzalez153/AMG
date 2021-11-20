@@ -52,7 +52,7 @@ const routes = [
         meta: {
             requiresAuth: true,
         },
-        children: [],
+      
     },
     {
         path: rutas.CIUDADANO_REGISTRAR,

@@ -2,22 +2,22 @@
     <v-main class="mx-3 my-0 pt-3">
         <v-data-table
             :headers="headers"
-            :items="desserts"
+            :items="promocion"
             sort-by="categoria"
             class="elevation-1"
         >
             <template v-slot:top>
                 <v-toolbar flat>
-                    <v-toolbar-title>Administrar Promociones </v-toolbar-title>
+                    <v-toolbar-title>Administrar Pubicaciones</v-toolbar-title>
                     <v-divider class="mx-4" inset vertical></v-divider>
                     <v-spacer></v-spacer>
                 </v-toolbar>
             </template>
             <template v-slot:item.actions="{ item }">
-                <v-icon small class="mr-2">
+                <v-icon small class="mx-1">
                     mdi-pencil
                 </v-icon>
-                <v-icon small>
+                <v-icon small class="mx-1">
                     mdi-delete
                 </v-icon>
             </template>
@@ -32,37 +32,44 @@
     export default {
         data: () => ({
             headers: [
-                {
+               {
                     text: "id",
                     align: "center",
                     sortable: false,
                     value: "id",
                 },
+                
                 {
                     text: "Fecha Inicio",
-                    align: "start",
+                    align: "center",
                     sortable: true,
-                    value: "fecha_inicio",
+                    value: "inicio_promocion",
                 },
-                { text: "Fecha Fin", value: "fecha_fin" },
-                { text: "Descripción", value: "descripcion" },
-                { text: "Ubicación", value: "ubicacion" },
+                {
+                    text: "Fecha Finalización",
+                    align: "center",
+                    sortable: true,
+                    value: "fin_promocion",
+                },
+                { text: "Descripción", value: "detalles" },
+                { text: "Categoria", value: "categoria" },
+                { text: "Ubicación", value: "bicacion" },
                 { text: "Acción", value: "actions", sortable: false },
             ],
-            promociones: [],
+            promocion: [],
         }),
         created() {
             Swal.fire({
-                title: "Obteniendo registros!",
+                title: "Obteniendo promociones!",
                 text: "Por favor espere un momento...",
                 icon: "info",
             });
             Swal.showLoading();
-            this.obtenerPromociones()
+            this.obtenerPromocion()
                 .then((respuesta) => {
                     respuesta.forEach((element) => {
-                        this.promociones = [
-                            ...this.promociones,
+                        this.promocion = [
+                            ...this.promocion,
                             { id: element.id, ...element.data() },
                         ];
                     });
@@ -76,9 +83,8 @@
                     });
                 });
         },
-
         methods: {
-            obtenerPromociones: () => db.collection("promociones").get(),
+            obtenerPromocion: () => db.collection("promociones").get(),
         },
     };
 </script>
