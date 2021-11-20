@@ -53,7 +53,7 @@
                 },
                 { text: "Descripción", value: "detalles" },
                 { text: "Categoria", value: "categoria" },
-                { text: "Ubicación", value: "bicacion" },
+                { text: "Ubicación", value: "direccion" },
                 { text: "Acción", value: "actions", sortable: false },
             ],
             promocion: [],
