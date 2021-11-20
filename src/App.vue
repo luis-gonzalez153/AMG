@@ -22,10 +22,10 @@
                 <v-list-item class="px-2">
                     <v-list-item-avatar>
                         <v-img
-                            src="https://randomuser.me/api/portraits/men/85.jpg"
+                            src="https://scontent-bog1-1.xx.fbcdn.net/v/t1.6435-9/211298636_4142217489189381_6629705770475768039_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeFXYThhxd0c9AcYqahTU5snDFC1lFuoeigMULWUW6h6KFBOPHpdHY118g11B1UsZXmNObM_aiNRKdsWhAoDxLtH&_nc_ohc=qHLssH3A84QAX95cQZf&_nc_ht=scontent-bog1-1.xx&oh=3249caf59e28e7293a4a2d425fd66ec0&oe=61BEE6D0"
                         ></v-img>
                     </v-list-item-avatar>
-                    <v-list-item-title>John Leider</v-list-item-title>
+                    <v-list-item-title>Administrador</v-list-item-title>
                 </v-list-item>
                 <v-list-group
                     :color="item.color"

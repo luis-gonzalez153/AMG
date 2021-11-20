@@ -32,12 +32,12 @@
     export default {
         data: () => ({
             headers: [
-                {
+               /* {
                     text: "id",
                     align: "center",
                     sortable: false,
                     value: "id",
-                },
+                },*/
                 {
                     text: "Nombres",
                     align: "center",
@@ -48,7 +48,7 @@
                     text: "Apellidos",
                     align: "center",
                     sortable: true,
-                    value: "nombres",
+                    value: "apellidos",
                 },
                 { text: "Identificacíon", value: "identificacion" },
                 { text: "Genero", value: "genero" },

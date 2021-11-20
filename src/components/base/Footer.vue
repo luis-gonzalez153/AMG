@@ -21,9 +21,7 @@
                 </v-card-text>
 
                 <v-card-text class="white--text pt-0">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Magnam cupiditate dicta perferendis eius recusandae tempora,
-                    atque amet, ab maiores laboriosam, pariatur maxime ex.
+                    Empresa casanareña dedicada con más de 8 años de experiencia en el sector automotriz con altos estándares de calidad y ofreciendo el mejor servicio a su distinguida clientela. 
                 </v-card-text>
 
                 <v-divider></v-divider>

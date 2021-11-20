@@ -54,13 +54,23 @@
                                 counter="10"
                                 outlined
                             />
-                        </v-col>
+                        </v-col>                       
                         <v-col class="py-0" cols="12" md="6">
                             <v-text-field
                                 v-model="ciudadano.direccion"
                                 label="Direccion"
                                 placeholder="Cr 24 - #32 - 42 sur"
                                 prepend-inner-icon="room"
+                                type="text"
+                                outlined
+                            />
+                        </v-col>
+                         <v-col class="py-0" cols="12" md="6">
+                            <v-text-field
+                                v-model="ciudadano.email"
+                                label="Email"
+                                placeholder="usuario@mail.com"
+                                prepend-inner-icon="email"
                                 type="text"
                                 outlined
                             />
@@ -290,6 +300,7 @@
                     genero: "",
                     telefono: "",
                     direccion: "",
+                    email: "",
                     educacion: [],
                     informacion_laboral: [],
                 },
@@ -360,6 +371,7 @@
                 (this.ciudadano["genero"] = ""),
                     (this.ciudadano["telefono"] = "");
                 this.ciudadano["direccion"] = "";
+                this.ciudadano["email"] = "";
                 this.ciudadano["educacion"] = [];
                 this.ciudadano["informacion_laboral"] = [];
             },

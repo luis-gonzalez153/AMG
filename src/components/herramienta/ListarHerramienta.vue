@@ -2,7 +2,7 @@
     <v-main class="mx-3 my-0 pt-3">
         <v-data-table
             :headers="headers"
-            :items="herramientas"
+            :items="herramienta"
             sort-by="categoria"
             class="elevation-1"
         >
@@ -11,24 +11,13 @@
                     <v-toolbar-title>Administrar Herramienta </v-toolbar-title>
                     <v-divider class="mx-4" inset vertical></v-divider>
                     <v-spacer></v-spacer>
-                    <template v-slot:activator="{ on, attrs }">
-                        <v-btn
-                            color="primary"
-                            dark
-                            class="mb-2"
-                            v-bind="attrs"
-                            v-on="on"
-                        >
-                            Nueva Herramienta
-                        </v-btn>
-                    </template>
                 </v-toolbar>
             </template>
             <template v-slot:item.actions="{ item }">
-                <v-icon small class="mr-2">
+                <v-icon small class="mx-1">
                     mdi-pencil
                 </v-icon>
-                <v-icon small>
+                <v-icon small class="mx-1">
                     mdi-delete
                 </v-icon>
             </template>
@@ -43,25 +32,32 @@
     export default {
         data: () => ({
             headers: [
-                {
-                    text: "Id",
+               /* {
+                    text: "id",
                     align: "center",
                     sortable: false,
-                    value: "name",
+                    value: "id",
+                },*/
+                {
+                    text: "Cantidad",
+                    align: "center",
+                    sortable: true,
+                    value: "cantidad",
                 },
                 {
-                    text: "Nombre",
-                    align: "start",
+                    text: "Marca",
+                    align: "center",
                     sortable: true,
-                    value: "nombre",
+                    value: "marca",
                 },
-                { text: "Categoria", value: "categoria" },
-                { text: "Número", value: "numero" },
-                { text: "Unidades", value: "unidades" },
-                { text: "Técnico", value: "tecnico" },
+                { text: "Descripción", value: "nombre" },
+                { text: "Categotia", value: "categoriaherramienta" },
+                { text: "Provedor", value: "provedor" },
+                { text: "Tel. Provedor", value: "provedortelefono" },
+                { text: "Asignación", value: "asignacion" },
                 { text: "Acción", value: "actions", sortable: false },
             ],
-            herramientas: [],
+            herramienta: [],
         }),
         created() {
             Swal.fire({
@@ -70,11 +66,11 @@
                 icon: "info",
             });
             Swal.showLoading();
-            this.obtenerHerramientas()
+            this.obtenerHerramienta()
                 .then((respuesta) => {
                     respuesta.forEach((element) => {
-                        this.herramientas = [
-                            ...this.herramientas,
+                        this.herramienta = [
+                            ...this.herramienta,
                             { id: element.id, ...element.data() },
                         ];
                     });
@@ -88,9 +84,8 @@
                     });
                 });
         },
-
         methods: {
-            obtenerHerramientas: () => db.collection("herramientas").get(),
+            obtenerHerramienta: () => db.collection("herramienta").get(),
         },
     };
 </script>

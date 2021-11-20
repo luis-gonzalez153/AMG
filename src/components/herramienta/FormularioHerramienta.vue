@@ -1,14 +1,14 @@
 <template>
     <div>
         <v-card>
-            <v-card-title>Registro de herramientas</v-card-title>
+            <v-card-title>Registro de Herramientas</v-card-title>
             <v-card-text>
                 <v-form>
                     <v-container>
                         <v-card
                             class="my-3"
                         >
-                            <v-card-title>Detalles de herramienta</v-card-title>
+                            <v-card-title>Detalles de Herramienta</v-card-title>
                             <v-card-text>
                                 <v-row>
                                     <v-col
@@ -16,12 +16,12 @@
                                         cols="6"
                                     >
                                         <v-text-field
-                                            v-model="ciudadano.identificacion"
-                                            label="Identificación"
-                                            placeholder="1111111111"
+                                            v-model="herramienta.cantidad"
+                                            label="Cantidad"
+                                            placeholder="1"
                                             type="number"
                                             outlined
-                                            prepend-inner-icon="fingerprint"
+                                        
                                         />
                                     </v-col>
                                     <v-col
@@ -29,9 +29,9 @@
                                         md="6"
                                     >
                                         <v-text-field
-                                        v-model="ciudadano.nombres"
-                                            label="Nombres"
-                                            placeholder="Humt"
+                                        v-model="herramienta.marca"
+                                            label="Marca"
+                                            placeholder="Stanley"
                                             type="text"
                                             outlined
                                         />
@@ -41,9 +41,9 @@
                                         md="6"
                                     >
                                         <v-text-field
-                                        v-model="ciudadano.apellidos"
-                                            label="Apellidos"
-                                            placeholder="Maxwell"
+                                        v-model="herramienta.nombre"
+                                            label="Nombre"
+                                            placeholder="Llave"
                                             type="text"
                                             outlined
                                         />
@@ -52,12 +52,13 @@
                                         class="py-0"
                                         md="6"
                                     >
-                                        <label class="d-block pl-2">Genero</label>
-                                        <v-checkbox class="d-inline-flex mt-1 px-2" v-for="genero in selects.genero"
-                                            :key="genero.value"
-                                            v-model="ciudadano.genero"
-                                            :label="genero.nombre"
-                                            :value="genero.value"
+                                        <label class="d-block pl-2">Tipo</label>
+                                        <v-checkbox class="d-inline-flex mt-1 px-2" 
+                                        v-for="categoriaherramienta in selects.categoriaherramienta"
+                                            :key="categoriaherramienta.value"
+                                            v-model="herramienta.categoriaherramienta"
+                                            :label="categoriaherramienta.nombre"
+                                            :value="categoriaherramienta.value"
                                         />
                                     </v-col>
                                     <v-col
@@ -65,24 +66,23 @@
                                         md="6"
                                     >
                                         <v-text-field
-                                        v-model="ciudadano.telefono"
-                                            label="Telefono"
-                                            placeholder="3400056789"
-                                            prepend-inner-icon="settings_phone"
-                                            type="number"
-                                            counter="10"
+                                        v-model="herramienta.provedor"
+                                            label="Provedor"
+                                            placeholder="Distri Servicios"
+                                            prepend-inner-icon="store"
+                                            type="text"                                            
                                             outlined
                                         />
-                                    </v-col>
+                                    </v-col> 
                                     <v-col
                                         class="py-0"
                                         md="6"
                                     >
                                         <v-text-field
-                                            v-model="ciudadano.direccion"
-                                            label="Direccion"
-                                            placeholder="Cr 24 - #32 - 42 sur"
-                                            prepend-inner-icon="room"
+                                            v-model="herramienta.provedortelefono"
+                                            label="Telefono Provedor"
+                                            placeholder="3008951234"
+                                            prepend-inner-icon="phone"
                                             type="text"
                                             outlined
                                         />
@@ -92,198 +92,36 @@
                                         md="6"
                                     >
                                         <v-select
-                                            v-model="ciudadano.educacion"
-                                            :items="selects.educacion"
-                                            item-text="nombre_profesion"
-                                            item-value="codigo_profesion"
-                                            label="Educacion"
-                                            placeholder="Seleccione la educacion..."
-                                            prepend-inner-icon="record_voice_over"
+                                            v-model="herramienta.asignacion"
+                                            :items="selects.asignacion"
+                                            item-text="nombre_banco"
+                                            item-value="codigo_banco"
+                                            label="Asignación"
+                                            placeholder="Seleccione la asignación..."
+                                            prepend-inner-icon="home_repair_service"
                                             outlined
                                             chips
                                             deletable-chips
                                             multiple
                                         />
+                                        </v-col>
+                                        <v-col cols="12" md="6">
                                         <v-btn
                                             color="primary"
-                                            @click="mostrar_modal_profesion = true"
-                                        >
-                                            Registrar profesion
-                                        </v-btn>
-                                    </v-col>
-                                </v-row>
-                            </v-card-text>
-                        </v-card>
-                        <v-btn
-                            color="green"
-                            dark
-                            @click="agregarInfoLaboral"
-                        >
-                            Crear información laboral
-                            <v-icon
-                                right
-                            >add_task</v-icon>
-                        </v-btn>
-                        <v-card
-                            v-for="(item, index) in ciudadano.informacion_laboral"
-                            :key="index"
-                            class="my-3"
-                        >
-                            <v-card-title>
-                                Información laboral
-                                <div class="d-flex flex-row-reverse">
-                                    <v-btn
-                                        class="mx-2"
-                                        fab
-                                        icon
-                                        outlined
-                                        color="green"
-                                        small
-                                        @click="agregarInfoLaboral"
-                                    >
-                                        <v-icon>add_task</v-icon>
-                                    </v-btn>
-                                    <v-btn
-                                        fab
-                                        icon
-                                        outlined
-                                        color="red"
-                                        small
-                                        @click="eliminarInfoLaboral(index)"
-                                    >
-                                        <v-icon>delete_forever</v-icon>
-                                    </v-btn>
-                                </div>
-                            </v-card-title>
-                            <v-card-text>
-                                <v-row>
-                                    <v-col
-                                        class="py-0"
-                                        cols="12"
-                                        sm="6"
-                                    >
-                                        <v-text-field
-                                            v-model="item.nombre_empresa"
-                                            label="Nombre de la empresa"
-                                            type="text"
-                                            placeholder="Facebook"
-                                            prepend-inner-icon="store"
-                                            outlined
-                                        />
-                                    </v-col>
-                                    <v-col
-                                        class="py-0"
-                                        cols="12"
-                                        sm="6"
-                                    >
-                                        <v-text-field
-                                            v-model="item.nombre_cargo"
-                                            label="Cargo"
-                                            type="text"
-                                            placeholder="Ingeniero"
-                                            prepend-inner-icon="store"
-                                            outlined
-                                        />
-                                    </v-col>
-                                    <v-col
-                                        cols="12"
-                                        sm="6"
-                                        md="6"
-                                    >
-                                        <v-text-field
-                                            v-model="item.fecha_inicio"
-                                            label="Fecha de inicio"
-                                            type="text"
-                                            prepend-icon="mdi-calendar"
-                                            outlined
-                                            @click="fecha_inicio = true"
-                                        ></v-text-field>
-                                        <v-dialog
-                                            v-model="fecha_inicio"
-                                            persistent
-                                            width="290px"
-                                        >
-                                            <v-date-picker
-                                                v-model="item.fecha_inicio"
-                                                scrollable
-                                                :max="new Date().toISOString().substr(0, 10)"
-                                            >
-                                                <v-spacer></v-spacer>
-                                                <v-btn
-                                                    text
-                                                    color="primary"
-                                                    @click="fecha_inicio = false"
-                                                >
-                                                    OK
-                                                </v-btn>
-                                            </v-date-picker>
-                                        </v-dialog>
-                                    </v-col>
-                                    <v-col
-                                        cols="12"
-                                        sm="6"
-                                        md="6"
-                                    >
-                                        <v-text-field
-                                            v-model="item.fecha_finalizacion"
-                                            label="Fecha de inicio"
-                                            type="text"
-                                            prepend-icon="mdi-calendar"
-                                            outlined
-                                            @click="fecha_finalizacion = true"
-                                        ></v-text-field>
-                                        <v-dialog
-                                            v-model="fecha_finalizacion"
-                                            persistent
-                                            width="290px"
-                                        >
-                                            <v-date-picker
-                                                v-model="item.fecha_finalizacion"
-                                                scrollable
-                                                :max="new Date().toISOString().substr(0, 10)"
-                                            >
-                                                <v-spacer></v-spacer>
-                                                <v-btn
-                                                    text
-                                                    color="primary"
-                                                    @click="fecha_finalizacion = false"
-                                                >
-                                                    OK
-                                                </v-btn>
-                                            </v-date-picker>
-                                        </v-dialog>
-                                    </v-col>
-                                    <v-col
-                                        class="py-0"
-                                        md="6"
-                                    >
-                                        <v-select
-                                            v-model="item.area_laboral"
-                                            :items="selects.areas_laborales"
-                                            item-text="nombre_area"
-                                            item-value="codigo_area"
-                                            label="Área laboral"
-                                            placeholder="Seleccione un area laboral..."
-                                            prepend-inner-icon="work"
-                                            multiple
-                                            chips
-                                            deletable-chips
-                                            outlined
-                                        />
-                                        <v-btn
-                                            color="green"
+                                            block
+                                            x-large
                                             dark
-                                            @click="mostrar_modal_area_laboral = true"
+                                            @click="mostrar_modal_banco = true"
                                         >
-                                            Crear area laboral
-                                            <v-icon
-                                                right
-                                            >work</v-icon>
+                                            Registrar Banco
                                         </v-btn>
                                     </v-col>
                                 </v-row>
                             </v-card-text>
                         </v-card>
+
+
+                        
                     </v-container>
                 </v-form>
             </v-card-text>
@@ -291,88 +129,77 @@
                 <v-btn
                     color="primary"
                     dark
-                    @click="registrarCiudadano"
+                    @click="registrarHerramienta"
                 >
                     <v-icon
                         left
                     >save</v-icon>
-                    Guardar registro
+                    Guardar Registro
                 </v-btn>
             </v-card-actions>
         </v-card>
-        <FormularioProfesion :mostrar_modal_profesion="mostrar_modal_profesion" @ocultarModalProfesional="ocultarModalProfesion" />
-        <FormularioAreaLaboral :mostrar_modal_area_laboral="mostrar_modal_area_laboral" @ocultarModalAreaLaboral="ocultarModalAreaLaboral" />
-    </div>
+        <FormularioBanco
+         :mostrar_modal_banco="mostrar_modal_banco" @ocultarModalBanconal="ocultarModalBanco" />
+       </div>
 </template>
 
 <script>
 
     import { db } from "../../functions/firebase";
-    import FormularioProfesion from "../ciudadano/FormularioProfesion.vue";
-    import FormularioAreaLaboral from "../ciudadano/FormularioAreaLaboral.vue";
+    import FormularioBanco from "../herramienta/FormularioBanco.vue";
 import Swal from 'sweetalert2';
 
     export default {
-        name:"FormularioCiudadano",
+        name:"FormularioHerramienta",
         components:{
-            FormularioProfesion,
-            FormularioAreaLaboral
+            FormularioBanco
         },
         data(){
             return{
-                ciudadano:{
-                    identificacion:"",
-                    nombres:"",
-                    apellidos:"",
-                    genero:"",
-                    telefono:"",
-                    direccion:"",
-                    educacion:[],
-                    informacion_laboral:[]
+                herramienta:{
+                    cantidad:"",
+                    marca:"",
+                    nombre:"",
+                    categoriaherramienta:"",
+                    provedor:"",
+                    provedortelefono:"",
+                    asignacion:[],
+                    
                 },
                 selects:{
-                    genero:[
-                        { nombre: "Masculino", value:"M" },
-                        { nombre: "Femenino", value:"F" },
-                        { nombre: "LGTBI", value:"LGTBI" },
+                    categoriaherramienta:[
+                        { nombre: "Llave de Mano", value:"Mano" },
+                        { nombre: "Equipo", value:"Equipo" },
+                        { nombre: "Electronicos", value:"Electrico" },
+                        { nombre: "Neumaticos", value:"Neumatico" },
                     ],
-                    educacion:[],
-                    areas_laborales:[]
+                    asignacion:[],
+                    
                 },
-                mostrar_modal_profesion:false,
-                mostrar_modal_area_laboral:false,
-                fecha_inicio:false,
-                fecha_finalizacion:false,
+                mostrar_modal_banco:false,
+                
             }
         },
         created(){
-            this.obtenerProfesiones().then(items => {
+            this.obtenerBancos().then(items => {
                 items.forEach(item => {
-                    this.selects.educacion.push({
-                        nombre_profesion: item.data().nombre_profesion,
-                        codigo_profesion: item.data().codigo_profesion
-                    });
-                });
-            });
-
-            this.obtenerAreasLaborales().then(items => {
-                items.forEach(item => {
-                    this.selects.areas_laborales.push({
-                        nombre_area: item.data().nombre_area,
-                        codigo_area: item.data().codigo_area
+                    this.selects.asignacion.push({
+                        nombre_banco: item.data().nombre_banco,
+                        codigo_banco: item.data().codigo_banco
                     });
                 });
             });
         },
+
         methods:{
-            registrarCiudadano(){
-                db.collection("ciudadanos").doc().set(
-                    this.ciudadano
+            registrarHerramienta(){
+                db.collection("herramienta").doc().set(
+                    this.herramienta
                 ).then(()=>{
                     this.borrarDatosFormulario();
                     Swal.fire({
                         title:"Exito!",
-                        text:"Se registro el ciudadano correctamente",
+                        text:"Se registro la herramienta correctamente",
                         icon:"success",
                         timerProgressBar:true,
                         timer:2000
@@ -389,56 +216,30 @@ import Swal from 'sweetalert2';
             },
 
             borrarDatosFormulario(){
-                this.ciudadano["nombres"] = "";
-                this.ciudadano["identificacion"] = "";
-                this.ciudadano["apellidos"] = "";
-                this.ciudadano["genero"] = "",
-                this.ciudadano["telefono"] = "";
-                this.ciudadano["direccion"] = "";
-                this.ciudadano["educacion"] = [];
-                this.ciudadano["informacion_laboral"] = []
+                this.herramienta["cantidad"] = "";
+                this.herramienta["marca"] = "";
+                this.herramienta["nombre"] = "";
+                this.herramienta["categoriaherramienta"] = "",
+                this.herramienta["provedor"] = "";
+                this.herramienta["provedortelefono"] = "";
+                this.herramienta["asignacion"] = [];
+                
             },
 
-            obtenerDatosCiudadano(id){
-                db.collection("ciudadanos").get();
+            obtenerDatosHerramienta(id){
+                db.collection("herramienta").get();
             },
 
-            agregarInfoLaboral(){
-                this.ciudadano["informacion_laboral"].push({
-                    fecha_inicio:new Date().toISOString().substr(0, 10),
-                    fecha_finalizacion:new Date().toISOString().substr(0, 10),
-                    nombre_empresa:'',
-                    nombre_cargo:'',
-                    area_laboral:'',
+            obtenerBancos(){
+                const bancos  = db.collection("bancos").get();
+                return bancos;
+            },
+
+            ocultarModalBanco(banco){
+                this.selects.asignacion.push({
+                    ...banco
                 });
-            },
-
-            eliminarInfoLaboral(index_info){
-                this.ciudadano["informacion_laboral"] = this.ciudadano["informacion_laboral"].filter((item, index) => index !== index_info);
-            },
-
-            obtenerProfesiones(){
-                const profesiones  = db.collection("profesiones").get();
-                return profesiones;
-            },
-
-            ocultarModalProfesion(profesion){
-                this.selects.educacion.push({
-                    ...profesion
-                });
-                this.mostrar_modal_profesion = false;
-            },
-
-            obtenerAreasLaborales(){
-                const areas_laborales = db.collection("area_laboral").get();
-                return areas_laborales;
-            },
-
-            ocultarModalAreaLaboral(area_laboral){
-                this.selects.areas_laborales.push({
-                    ...area_laboral
-                });
-                this.mostrar_modal_area_laboral = false;
+                this.mostrar_modal_banco = false;
             },
 
         },
