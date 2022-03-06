@@ -1,232 +1,146 @@
+import Swal from "sweetalert2";
 import Vue from "vue";
 import VueRouter from "vue-router";
-import rutas from "../functions/rutas";
-import { auth } from "../functions/firebase";
+import { rutas } from "../functions/rutas";
+import store from "../store/index";
+import { routeComponent } from "./routesComponents";
 
 Vue.use(VueRouter);
 
 const routes = [
     {
-        path: "/login",
-        name: "Login",
-        component: () => import("../components/Login.vue"),
+        path: rutas.HOME,
+        name: "HOME",
+        component: routeComponent.home,
+        meta: {
+            requiresAuth: false,
+            main: true,
+        },
     },
     {
-        path: rutas.PROMOCION_REGISTRAR,
-        component: () =>
-            import("../components/promocion/FormularioPromocion.vue"),
+        path: rutas.USUARIO_PERFIL,
+        name: "PERFIL_USUARIO",
+        component: routeComponent.perfilUsuario,
+        meta: {
+            requiresAuth: false,
+            main: true,
+        },
+    },
+    {
+        path: rutas.USUARIO_LISTAR,
+        name: "LISTAR_USUARIOS",
+        component: routeComponent.listarUsuarios,
         props: true,
         meta: {
             requiresAuth: true,
+            main: true,
+        },
+    },
+    {
+        path: rutas.PROMOCION_REGISTRAR,
+        name: "REGISTRAR_PROMOCION",
+        component: routeComponent.formularioPromocion,
+        props: true,
+        meta: {
+            requiresAuth: true,
+            main: true,
         },
     },
     {
         path: rutas.PROMOCION_EDITAR,
-        component: () =>
-            import("../components/promocion/FormularioPromocion.vue"),
+        name: "EDITAR_PROMOCION",
+        component: routeComponent.formularioPromocion,
         props: true,
         meta: {
             requiresAuth: true,
-        },
-    },
-    {
-        path: rutas.PROMOCION_VER,
-        component: () =>
-            import("../components/promocion/VistaPreviaPromocion.vue"),
-        props: true,
-        meta: {
-            requiresAuth: true,
+            main: true,
         },
     },
     {
         path: rutas.PROMOCION_LISTAR,
-        component: () => import("../components/promocion/ListarPromocion.vue"),
+        name: "LISTAR_PROMOCIONES",
+        component: routeComponent.listarPromociones,
         props: true,
         meta: {
             requiresAuth: true,
-        },
-    },
-    {
-        path: "/promocion/",
-        component: () => import("../components/promocion/ListarPromocion.vue"),
-        meta: {
-            requiresAuth: true,
-        },
-      
-    },
-    {
-        path: rutas.CIUDADANO_REGISTRAR,
-        component: () =>
-            import("../components/ciudadano/FormularioCiudadano.vue"),
-        props: true,
-        meta: {
-            requiresAuth: true,
-        },
-    },
-    {
-        path: rutas.CIUDADANO_EDITAR,
-        component: () =>
-            import("../components/ciudadano/FormularioCiudadano.vue"),
-        props: true,
-        meta: {
-            requiresAuth: true,
-        },
-    },
-    {
-        path: rutas.CIUDADANO_VER,
-        component: () =>
-            import("../components/ciudadano/VistaPreviaCiudadano.vue"),
-        props: true,
-        meta: {
-            requiresAuth: true,
-        },
-    },
-    {
-        path: rutas.CIUDADANO_LISTAR,
-        name: "listar-usuarios",
-        component: () => import("../components/ciudadano/ListarCiudadanos.vue"),
-        props: true,
-        meta: {
-            requiresAuth: true,
-        },
-    },
-    {
-        path: rutas.HERRAMIENTA_REGISTRAR,
-        component: () =>
-            import("../components/herramienta/FormularioHerramienta.vue"),
-        props: true,
-        meta: {
-            requiresAuth: true,
-        },
-    },
-    {
-        path: rutas.HERRAMIENTA_EDITAR,
-        component: () =>
-            import("../components/herramienta/FormularioHerramienta.vue"),
-        props: true,
-        meta: {
-            requiresAuth: true,
-        },
-    },
-    {
-        path: rutas.HERRAMIENTA_VER,
-        component: () =>
-            import("../components/herramienta/VistaPreviaHerramienta.vue"),
-        props: true,
-        meta: {
-            requiresAuth: true,
+            main: true,
         },
     },
     {
         path: rutas.HERRAMIENTA_LISTAR,
-        component: () =>
-            import("../components/herramienta/ListarHerramienta.vue"),
+        name: "LISTAR_HERRAMIENTAS",
+        component: routeComponent.listarHerramientas,
         props: true,
         meta: {
             requiresAuth: true,
-        },
-    },
-    {
-        path: rutas.PRODUCTO_REGISTRAR,
-        component: () =>
-            import("../components/producto/FormularioProducto.vue"),
-        props: true,
-        meta: {
-            requiresAuth: true,
-        },
-    },
-    {
-        path: rutas.PRODUCTO_EDITAR,
-        component: () =>
-            import("../components/producto/FormularioProducto.vue"),
-        props: true,
-        meta: {
-            requiresAuth: true,
-        },
-    },
-    {
-        path: rutas.PRODUCTO_VER,
-        component: () =>
-            import("../components/producto/VistaPreviaProducto.vue"),
-        props: true,
-        meta: {
-            requiresAuth: true,
+            main: true,
         },
     },
     {
         path: rutas.PRODUCTO_LISTAR,
-        component: () => import("../components/producto/ListarProducto.vue"),
+        name: "LISTAR_PRODUCTOS",
+        component: routeComponent.listarProductos,
         props: true,
         meta: {
             requiresAuth: true,
+            main: true,
         },
     },
     {
-        path: rutas.CITA_REGISTRAR,
-        component: () => import("../components/cita/FormularioCita.vue"),
+        path: rutas.CITAS,
+        name: "CITAS_USUARIO",
+        component: routeComponent.citas,
         props: true,
         meta: {
             requiresAuth: true,
+            main: true,
         },
     },
     {
-        path: rutas.CITA_EDITAR,
-        component: () => import("../components/cita/FormularioCita.vue"),
+        path: rutas.CITAS_ADMIN,
+        name: "CITAS_USUARIO_ADMIN",
+        component: routeComponent.citasAdmin,
         props: true,
         meta: {
             requiresAuth: true,
-        },
-    },
-    {
-        path: rutas.CITA_VER,
-        component: () => import("../components/cita/VistaPreviaCita.vue"),
-        props: true,
-        meta: {
-            requiresAuth: true,
-        },
-    },
-    {
-        path: rutas.CITA_LISTAR,
-        component: () => import("../components/cita/ListarCita.vue"),
-        props: true,
-        meta: {
-            requiresAuth: true,
+            main: true,
         },
     },
     {
         path: rutas.REPARACIONES_REGISTRAR,
-        component: () =>
-            import("../components/reparaciones/FormularioReparaciones.vue"),
+        component: routeComponent.formularioReparacion,
         props: true,
         meta: {
             requiresAuth: true,
+            main: true,
         },
     },
     {
         path: rutas.REPARACIONES_EDITAR,
-        component: () =>
-            import("../components/reparaciones/FormularioReparaciones.vue"),
+        component: routeComponent.formularioReparacion,
         props: true,
         meta: {
             requiresAuth: true,
+            main: true,
         },
     },
-    {
-        path: rutas.REPARACIONES_VER,
-        component: () =>
-            import("../components/reparaciones/VistaPreviaReparaciones.vue"),
-        props: true,
-        meta: {
-            requiresAuth: true,
-        },
-    },
+    // {
+    //     path: rutas.REPARACIONES_VER,
+    //     component: () =>
+    //         import("../components/reparaciones/VistaPreviaReparaciones.vue"),
+    //     props: true,
+    //     meta: {
+    //         requiresAuth: false,
+    //         main: true,
+    //     },
+    // },
     {
         path: rutas.REPARACIONES_LISTAR,
-        component: () =>
-            import("../components/reparaciones/ListarReparaciones.vue"),
+        component: routeComponent.listarReparaciones,
         props: true,
         meta: {
             requiresAuth: true,
+            main: true,
         },
     },
     {
@@ -243,14 +157,20 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-    const requiresAuth = to.matched.some((x) => x.meta.requiresAuth);
-    const currentUser = auth.currentUser;
-
-    if (requiresAuth && !currentUser)
-        next({ path: "/login", query: { redirect: to.fullPath } });
-    else if (!requiresAuth && currentUser) next("/");
-    else if (!requiresAuth && !currentUser) next();
-    else next();
+    if (to.matched.some((record) => record.meta.requiresAuth)) {
+        if (store.getters.usuarioAutenticado) {
+            next();
+        } else {
+            Swal.fire({
+                title: "Permiso denegado!",
+                text: "Ésta sección requiere estar autenticado o logeado",
+                icon: "warning",
+            });
+            next({ name: "HOME" });
+        }
+    } else {
+        next();
+    }
 });
 
 export default router;

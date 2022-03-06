@@ -1,16 +1,18 @@
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
+import "firebase/storage";
 
+// configuración firebase
 const configuracionFirebase = {
-  apiKey: "AIzaSyAVKpY9mVYOyK0tR8HG9X0VSkikBd9icAg",
-  authDomain: "amg-yopal.firebaseapp.com",
-  databaseURL: "https://amg-yopal-default-rtdb.firebaseio.com",
-  projectId: "amg-yopal",
-  storageBucket: "amg-yopal.appspot.com",
-  messagingSenderId: "343514686686",
-  appId: "1:343514686686:web:42a33a9649268fac620e4f",
-  measurementId: "G-CW40TFPMHQ"
+    apiKey: process.env.VUE_APP_API_KEY,
+    authDomain: process.env.VUE_APP_AUTH_DOMAIN,
+    databaseURL: process.env.VUE_APP_DATABASE_URL,
+    projectId: process.env.VUE_APP_PROJECT_ID,
+    storageBucket: process.env.VUE_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.VUE_APP_MESSAGING_SENDER_ID,
+    appId: process.env.VUE_APP_APP_ID,
+    measurementId: process.env.VUE_APP_MEASUREMENT_ID,
 };
 
 //inicializando firebase
@@ -21,12 +23,6 @@ const db = firebase.firestore();
 
 const auth = firebase.auth();
 
-//collections references
-const usersCollection = db.collection("usuarios");
+const storage = firebase.storage();
 
-export {
-  db,
-  auth,
-  usersCollection,
-  firebase
-}
+export { db, auth, firebase, storage };
