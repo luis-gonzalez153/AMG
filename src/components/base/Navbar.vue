@@ -18,7 +18,7 @@
                         @click="drawer = true"
                     ></v-app-bar-nav-icon>
                     <v-toolbar-title>
-                        <v-btn text to="/">AMG SERVICE</v-btn>
+                        <v-btn text to="/">AMG</v-btn>
                     </v-toolbar-title>
                     <v-spacer></v-spacer>
                     <h4 v-if="usuarioAutenticado">

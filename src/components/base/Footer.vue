@@ -8,7 +8,7 @@
                 style="width:100%"
             >
                 <v-card-text class="white--text pa-5">
-                    Empresa casanareña dedicada con más de 8 años de experiencia
+                    Empresa casanareña con más de 8 años de experiencia
                     en el sector automotriz con altos estándares de calidad y
                     ofreciendo el mejor servicio a su distinguida clientela.
                 </v-card-text>
@@ -16,7 +16,7 @@
                 <v-divider></v-divider>
 
                 <v-card-text class="white--text">
-                    {{ new Date().getFullYear() }} — <strong>AMGSERVICE</strong>
+                    {{ new Date().getFullYear() }} — <strong>AMG Yopal</strong>
                 </v-card-text>
             </v-card>
         </v-footer>

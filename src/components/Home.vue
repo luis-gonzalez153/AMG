@@ -5,10 +5,8 @@
                 <div class="hero__image">
                     <h1>AGM SERVICE</h1>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Eligendi tempore modi minus veritatis labore nulla,
-                        magnam obcaecati nemo nihil. Temporibus veniam harum vel
-                        culpa. Nulla ut eligendi eum repudiandae necessitatibus!
+                        Bienvenido, para nosotros es un gusto tenerte aquí y que puedas acceder 
+                        a nuestros servios las 24hr.
                     </p>
                 </div>
             </v-col>
