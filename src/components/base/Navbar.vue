@@ -259,7 +259,7 @@
                 >
                     <v-icon>menu</v-icon>
                 </v-btn>
-                <v-toolbar-title class="mx-2">Amgservice</v-toolbar-title>
+                <v-toolbar-title class="mx-2">AMG</v-toolbar-title>
                 <div v-if="usuarioAutenticado" class="display">
                     <v-btn
                         :to="rutas.HOME"
