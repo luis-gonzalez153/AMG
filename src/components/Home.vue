@@ -3,10 +3,9 @@
         <v-row class="mx-1">
             <v-col cols="12" sm="9">
                 <div class="hero__image">
-                    <h1>AGM SERVICE</h1>
+                    <h1>AMG YOPAL</h1>
                     <p>
-                        Bienvenido, para nosotros es un gusto tenerte aquí y que puedas acceder 
-                        a nuestros servios las 24hr.
+                        Bienvenido, para nosotros es un gusto tenerte aquí y que puedas acceder a nuestros servicios las 24hr.
                     </p>
                 </div>
             </v-col>
