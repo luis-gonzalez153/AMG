@@ -127,14 +127,12 @@
         data: () => ({
             headers: [
                 {
-                    text: "id",
-                    align: "center",
+                    text: "Nombre",
                     sortable: false,
-                    value: "id",
+                    value: "nombre",
                 },
                 {
                     text: "Marca",
-                    align: "center",
                     sortable: true,
                     value: "marca",
                 },
@@ -144,7 +142,7 @@
                     sortable: true,
                     value: "cantidad",
                 },
-                { text: "Categotia", value: "tipoProducto" },
+                { text: "Categoria", value: "tipoProducto" },
                 { text: "Precio", value: "precio" },
                 { text: "Proveedor", value: "proveedor" },
                 { text: "Tel. Provedor", value: "proveedorTelefono" },

@@ -37,6 +37,7 @@
                     :error-messages="passwordErrors"
                     @blur="$v.password.$touch()"
                 />
+                
                 <v-btn color="blue" type="submit" dark block>
                     <v-icon class="mr-2">
                         mdi-send

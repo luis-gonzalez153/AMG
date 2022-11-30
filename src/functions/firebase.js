@@ -30,6 +30,7 @@ import { load } from 'recaptcha-v3'
 
 load('6LfRyz8jAAAAAElQ9_lRSpogepV_nw4ltxakJqOu').then((recaptcha) => {
   recaptcha.execute('registrarUsuarioAction', 'iniciarSesionAction').then((token) => {
-      console.log(token) // Will print the token
+      console.log(token)// Will print the token
     })
+    
 })

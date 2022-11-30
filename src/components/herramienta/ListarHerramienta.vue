@@ -127,12 +127,12 @@
         },
         data: () => ({
             headers: [
-                {
-                    text: "id",
-                    align: "center",
-                    sortable: false,
-                    value: "id",
-                },
+                //{
+                    //text: "id",
+                    //align: "center",
+                    //sortable: false,
+                    //value: "id",
+                //},
                 {
                     text: "Cantidad",
                     align: "center",

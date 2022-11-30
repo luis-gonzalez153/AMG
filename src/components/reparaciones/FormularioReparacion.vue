@@ -52,7 +52,7 @@
                             :items="selects.estadosRevision"
                             item-text="nombre"
                             item-value="value"
-                            label="Estado revisión"
+                            label="Estado Revisión"
                             placeholder="Seleccione un estado"
                             prepend-inner-icon="home_repair_service"
                             outlined

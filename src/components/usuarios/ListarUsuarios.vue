@@ -96,12 +96,12 @@
         },
         data: () => ({
             headers: [
-                {
-                    text: "id",
-                    align: "center",
-                    sortable: false,
-                    value: "id",
-                },
+                //{
+                    //text: "id",
+                    //align: "center",
+                    //sortable: false,
+                    //value: "id",
+                //},
                 {
                     text: "Nombres",
                     align: "center",

@@ -7,7 +7,7 @@ const roles = [
 ];
 
 const estadosRevisiones = [
-    { nombre: "Recivido", value: "RECIVIDO" },
+    { nombre: "Recibido", value: "RECIBIDO" },
     { nombre: "Revisando", value: "REVISADO" },
     { nombre: "Terminado", value: "TERMINADO" },
     { nombre: "Entregado", value: "ENTREGADO" },

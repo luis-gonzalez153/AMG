@@ -16,7 +16,9 @@
                 <v-divider></v-divider>
 
                 <v-card-text class="white--text">
-                    {{ new Date().getFullYear() }} — <strong>AMG Yopal</strong>
+                    {{ new Date().getFullYear() }} — This site is protected by reCAPTCHA and the Google
+                    <a href="https://policies.google.com/privacy" style="color:#FFFFFF;">Privacy Policy</a> and
+                    <a href="https://policies.google.com/terms" style="color:#FFFFFF;">Terms of Service</a> apply.
                 </v-card-text>
             </v-card>
         </v-footer>

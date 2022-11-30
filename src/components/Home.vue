@@ -5,7 +5,7 @@
                 <div class="hero__image">
                     <h1>AMG YOPAL</h1>
                     <p>
-                        Bienvenido, para nosotros es un gusto tenerte aquí y que puedas acceder a nuestros servicios las 24hr.
+                        Bienvenido, para nosotros es un gusto atenderte. Visítanos en la calle 24 6-76 Yopal - Cas.
                     </p>
                 </div>
             </v-col>
@@ -118,4 +118,5 @@
     .hero__image > p {
         font-size: 1.5rem;
     }
+    .grecaptcha-badge { visibility: hidden; }
 </style>
